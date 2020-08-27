@@ -1,17 +1,16 @@
-f=input('enter file')
-fhand=open(f)
-counts=dict()
-for line in fhand:
-	words=line.split()
-	for word in words:
-		counts[word]=counts.get(word,0)+1
-#print(counts)
+import re
+f=open('regexsample.txt')
+nlist=list()
+for i in f:
+	i=i.rstrip()
+	x=re.findall('[0-9]+',i)
+	x=int(x)
+	if len(x)>0: 
+		#num=int(x[0])
+		
+		nlist.append(x)
+		
+#print(nlist)
+for j in nlist:
+	print(j)
 
-lst=list()
-for k,v in counts.items():
-	lst.append((v,k))
-	lst=sorted(lst,reverse=True)
-#print(lst)
-
-for v,k in lst[:10]:
-	print(k,v)
